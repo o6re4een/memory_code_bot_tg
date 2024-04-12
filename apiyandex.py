@@ -17,19 +17,19 @@ headers = {
 }
 url = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
 def get_biography(arrdata):
-    allname=arrdata[2].split(" ", 2)
+    allname=arrdata[1].split(" ", 2)
     name=allname[1]
     last_name=allname[0]
-    age=arrdata[3]
-    placebirth=arrdata[4]
-    prof=arrdata[5]
-    freetim=arrdata[6]
-    hobby=arrdata[7]
-    relegion=arrdata[8]
-    values=arrdata[9]
-    goodrel=arrdata[10]
-    personality=arrdata[11]
-    specmoments=arrdata[12]
+    age=arrdata[2]
+    placebirth=arrdata[3]
+    prof=arrdata[4]
+    freetim=arrdata[5]
+    hobby=arrdata[6]
+    relegion=arrdata[7]
+    values=arrdata[8]
+    goodrel=arrdata[9]
+    personality=arrdata[10]
+    specmoments=arrdata[11]
     prompt = {
         "modelUri": f"gpt://{FOLDER_ID}/yandexgpt/latest",
         "completionOptions": {
@@ -50,5 +50,5 @@ def get_biography(arrdata):
     }
 
     response = requests.post(url, headers=headers, json=prompt)
-    result = response.text
-    print(result)
+    result = response.json()
+    return result
