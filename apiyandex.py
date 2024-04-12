@@ -52,4 +52,3 @@ def get_biography(arrdata):
     response = requests.post(url, headers=headers, json=prompt)
     result = response.json()
     return result
-    # print(result)

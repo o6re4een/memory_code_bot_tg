@@ -1,4 +1,3 @@
-# team35@hackathon.ru 9L7mGXqk
 import telebot
 from telebot import types
 from questions import question
